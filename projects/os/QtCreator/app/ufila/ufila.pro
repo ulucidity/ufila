@@ -13,57 +13,70 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: libufila.pri
+#   File: ufila.pro
 #
 # Author: $author$
-#   Date: 3/28/2022, 5/8/2022
+#   Date: 5/8/2022
 #
-# generic QtCreator project .pri file for framework ufila static library libufila
+# os specific QtCreator project .pro file for framework ufila executable ufila
 ########################################################################
-
-########################################################################
-# libufila
-XOS_LIB_UFILA_VERSION_BUILD_DATE = 5/8/2022 #$$system(~/bin/utility/tdate)
-
-# libufila TARGET
 #
-libufila_TARGET = ufila
-libufila_TEMPLATE = lib
-libufila_CONFIG += staticlib
-
-# libufila INCLUDEPATH
+# Debug: ufila/build/os/QtCreator/Debug/bin/ufila
+# Release: ufila/build/os/QtCreator/Release/bin/ufila
+# Profile: ufila/build/os/QtCreator/Profile/bin/ufila
 #
-libufila_INCLUDEPATH += \
-$${ufila_INCLUDEPATH} \
+include(../../../../../build/QtCreator/ufila.pri)
+include(../../../../QtCreator/ufila.pri)
+include(../../ufila.pri)
+include(../../../../QtCreator/app/ufila/ufila.pri)
 
-# libufila DEFINES
-#
-libufila_DEFINES += \
-$${ufila_DEFINES} \
-DEFAULT_LOGGING_LEVELS_ERROR \
-XOS_LIB_UFILA_VERSION_BUILD_DATE=$${XOS_LIB_UFILA_VERSION_BUILD_DATE} \
+TARGET = $${ufila_exe_TARGET}
 
 ########################################################################
-# libufila OBJECTIVE_HEADERS
+# INCLUDEPATH
 #
-#libufila_OBJECTIVE_HEADERS += \
-#$${UFILA_SRC}/xos/lib/ufila/version.hh \
+INCLUDEPATH += \
+$${ufila_exe_INCLUDEPATH} \
 
-# libufila OBJECTIVE_SOURCES
-#
-#libufila_OBJECTIVE_SOURCES += \
-#$${UFILA_SRC}/xos/lib/ufila/version.mm \
+# DEFINES
+# 
+DEFINES += \
+$${ufila_exe_DEFINES} \
 
 ########################################################################
-# libufila HEADERS
+# OBJECTIVE_HEADERS
 #
-libufila_HEADERS += \
-$${UFILA_SRC}/xos/lib/ufila/version.hpp \
+OBJECTIVE_HEADERS += \
+$${ufila_exe_OBJECTIVE_HEADERS} \
 
-# libufila SOURCES
+# OBJECTIVE_SOURCES
 #
-libufila_SOURCES += \
-$${UFILA_SRC}/xos/lib/ufila/version.cpp \
+OBJECTIVE_SOURCES += \
+$${ufila_exe_OBJECTIVE_SOURCES} \
+
+########################################################################
+# HEADERS
+#
+HEADERS += \
+$${ufila_exe_HEADERS} \
+$${ufila_exe_OBJECTIVE_HEADERS} \
+
+# SOURCES
+#
+SOURCES += \
+$${ufila_exe_SOURCES} \
+
+########################################################################
+# FRAMEWORKS
+#
+FRAMEWORKS += \
+$${ufila_exe_FRAMEWORKS} \
+
+# LIBS
+#
+LIBS += \
+$${ufila_exe_LIBS} \
+$${FRAMEWORKS} \
 
 ########################################################################
 

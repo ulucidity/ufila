@@ -13,57 +13,69 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: libufila.pri
+#   File: ufila.pri
 #
 # Author: $author$
-#   Date: 3/28/2022, 5/8/2022
+#   Date: 5/8/2022
 #
-# generic QtCreator project .pri file for framework ufila static library libufila
+# generic QtCreator project .pri file for framework ufila executable ufila
 ########################################################################
 
 ########################################################################
-# libufila
-XOS_LIB_UFILA_VERSION_BUILD_DATE = 5/8/2022 #$$system(~/bin/utility/tdate)
+# ufila
 
-# libufila TARGET
+# ufila_exe TARGET
 #
-libufila_TARGET = ufila
-libufila_TEMPLATE = lib
-libufila_CONFIG += staticlib
+ufila_exe_TARGET = ufila
 
-# libufila INCLUDEPATH
+# ufila_exe INCLUDEPATH
 #
-libufila_INCLUDEPATH += \
+ufila_exe_INCLUDEPATH += \
 $${ufila_INCLUDEPATH} \
 
-# libufila DEFINES
+# ufila_exe DEFINES
 #
-libufila_DEFINES += \
+ufila_exe_DEFINES += \
 $${ufila_DEFINES} \
 DEFAULT_LOGGING_LEVELS_ERROR \
-XOS_LIB_UFILA_VERSION_BUILD_DATE=$${XOS_LIB_UFILA_VERSION_BUILD_DATE} \
+XOS_CONSOLE_MAIN_MAIN \
 
 ########################################################################
-# libufila OBJECTIVE_HEADERS
+# ufila_exe OBJECTIVE_HEADERS
 #
-#libufila_OBJECTIVE_HEADERS += \
-#$${UFILA_SRC}/xos/lib/ufila/version.hh \
+#ufila_exe_OBJECTIVE_HEADERS += \
+#$${UFILA_SRC}/xos/app/console/ufila/version/main.hh \
 
-# libufila OBJECTIVE_SOURCES
+# ufila_exe OBJECTIVE_SOURCES
 #
-#libufila_OBJECTIVE_SOURCES += \
-#$${UFILA_SRC}/xos/lib/ufila/version.mm \
-
-########################################################################
-# libufila HEADERS
-#
-libufila_HEADERS += \
-$${UFILA_SRC}/xos/lib/ufila/version.hpp \
-
-# libufila SOURCES
-#
-libufila_SOURCES += \
-$${UFILA_SRC}/xos/lib/ufila/version.cpp \
+#ufila_exe_OBJECTIVE_SOURCES += \
+#$${UFILA_SRC}/xos/app/console/ufila/version/main.mm \
 
 ########################################################################
+# ufila_exe HEADERS
+#
+ufila_exe_HEADERS += \
+$${UFILA_SRC}/xos/app/console/ufila/version/main_opt.hpp \
+$${UFILA_SRC}/xos/app/console/ufila/version/main.hpp \
+
+# ufila_exe SOURCES
+#
+ufila_exe_SOURCES += \
+$${UFILA_SRC}/xos/app/console/ufila/version/main_opt.cpp \
+$${UFILA_SRC}/xos/app/console/ufila/version/main.cpp \
+
+########################################################################
+# ufila_exe FRAMEWORKS
+#
+ufila_exe_FRAMEWORKS += \
+$${ufila_FRAMEWORKS} \
+
+# ufila_exe LIBS
+#
+ufila_exe_LIBS += \
+$${ufila_LIBS} \
+
+########################################################################
+# NO Qt
+QT -= gui core
 
